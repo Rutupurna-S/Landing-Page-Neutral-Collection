@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Neutral Collection
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            border: 5px solid #cdc6c1;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero {
+            background-image: url('./Assets/Beige Neutral Interior Design Landing Page Desktop Prototype (1).png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Increase the height of the background */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hover-grow:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+            .slider::-webkit-scrollbar {
+                display: none;
+            }
+
+        .slider-item {
+            min-width: 300px;
+            margin-right: 16px;
+        }
+
+        .slider-container {
+            position: relative;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+            .slider-button.left {
+                left: 0;
+            }
+
+            .slider-button.right {
+                right: 0;
+            }
+
+        .circle-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .circle-button.left {
+                left: 10%;
+            }
+
+            .circle-button.right {
+                right: 10%;
+            }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+
+            .nav-link:hover {
+                transform: scale(1.1);
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+        .active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .quote-slider {
+            display: none;
+        }
+
+            .quote-slider.active {
+                display: block;
+            }
+
+        .quote-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .quote-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+            .quote-indicator.active {
+                background-color: #000;
+            }
+
+        .bullets {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .bullet {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: gray;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+            .bullet.active {
+                background-color: black;
+            }
+    </style>
+</head>
+<body class="bg-[#faf9f8]">
+    <header class="flex justify-between items-center p-6 fixed w-full bg-[#faf9f8] z-50" style="">
+        <div class="text-lg font-medium">
+            REALLY GREAT SITE
+        </div>
+        <nav class="space-x-8 text-sm font-medium">
+            <a class="text-black nav-link active" href="#home" style="">
+                HOME
+            </a>
+            <a class="text-gray-600 nav-link" href="#about">
+                ABOUT
+            </a>
+            <a class="text-gray-600 nav-link" href="#shop">
+                SHOP
+            </a>
+            <a class="text-gray-600 nav-link" href="#contact">
+                CONTACT
+            </a>
+            <a class="text-gray-600 nav-link" href="#">
+                LOGIN
+            </a>
+            <a class="text-gray-600 nav-link" href="#">
+                REGISTER
+            </a>
+        </nav>
+    </header>
+    <div class="hero" id="home">
+        <main class="pt-24 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between p-6 lg:p-12  mt-6 lg:mt-12" style="">
+            <div class="lg:w-1/2 space-y-6" style="">
+                <h1 class="title text-5xl lg:text-6xl" style="">
+                    Neutral
+                </h1>
+                <h1 class="title text-5xl lg:text-6xl" style="">
+                    Collection
+                </h1>
+                <div class="quote-slider active">
+                    <p class="text-gray-700 text-lg" onmouseover="pauseSlider()" onmouseout="resumeSlider()">
+                        Simplicity is the ultimate sophistication. Style is the perfection of a point of view.
+                    </p>
+                </div>
+                <div class="quote-slider">
+                    <p class="text-gray-700 text-lg" onmouseover="pauseSlider()" onmouseout="resumeSlider()">
+                        Minimalism is not a lack of something. It's simply the perfect amount of something.
+                    </p>
+                </div>
+                <div class="quote-slider">
+                    <p class="text-gray-700 text-lg" onmouseover="pauseSlider()" onmouseout="resumeSlider()">
+                        A well-designed home is a reflection of the soul, and Design is intelligence made visible.
+                    </p>
+                </div>
+                <button class="px-6 py-3 border border-black text-black font-medium text-lg">
+                    SHOP NOW
+                </button>
+                <div class="bullets">
+                    <!-- Code for changing the bullet position -->
+                    <span class="bullet active " onclick="changeQuote(0)"></span>
+                    <span class="bullet" onclick="changeQuote(1)"></span>
+                    <span class="bullet" onclick="changeQuote(2)"></span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <section class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-between p-6 lg:p-12 bg-white" id="about">
+        <div class="lg:w-1/2">
+            <img alt="A person arranging decorative items on a table" class="w-full h-auto rounded-lg" src="https://storage.googleapis.com/a1aa/image/OaWV574oCowf8aFanJOlxPM1aXUz1u2vo3FEf_yi048.jpg" />
+        </div>
+        <div class="lg:w-1/2 space-y-6 mt-6 lg:mt-0 lg:pl-12">
+            <h2 class="title text-4xl lg:text-5xl">
+                About Our Collection
+            </h2>
+            <p class="text-gray-700">
+                At Neutral Collection, we believe that beauty lies in simplicity.
+                Our curated collection of neutral-toned home decor blends modern aesthetics with timeless elegance.
+                Inspired by minimalism and natural textures, each piece is crafted to create a serene, sophisticated living space.
+                Whether you're redesigning your home or adding a subtle touch of warmth,
+                we bring you thoughtfully selected decor that embodies harmony and style.
+            </p>
+            <p class="text-gray-700">
+                Our Neutral Collection is designed to bring a sense of calm and elegance to your home.
+                Each piece is carefully crafted with attention to detail and a focus on natural materials.
+                Whether you're looking to add a touch of sophistication to your living room or create a serene atmosphere in your bedroom,
+                our collection has something for every space.
+            </p>
+            <p class="text-gray-700">
+                We believe in the beauty of simplicity and the power of neutral tones to create a harmonious environment.
+                Our pieces are versatile and timeless, making them perfect for any style of decor.
+                Explore our collection and discover the perfect addition to your home.
+            </p>
+            <p class="text-gray-700">
+                Each piece in our collection is thoughtfully chosen to complement modern, cozy, and serene interiors.
+                Whether you're decorating a new space or adding a touch of simplicity to your home, we're here to bring beauty into your everyday moments.
+            </p>
+        </div>
+    </section>
+    <section class="p-6 lg:p-12 fade-in bg-[#faf9f8]" style="" id="shop">
+        <h2 class="title text-4xl lg:text-5xl mb-6">
+            Shop
+        </h2>
+        <p class="text-gray-700 text-lg mb-6">
+            Discover a collection that speaks to elegance and simplicity.
+            Our selection of neutral home decor pieces is designed to complement any space with a refined, modern touch.
+            From handcrafted ceramics to minimalist vases, find pieces that enhance your home's tranquility.
+        </p>
+        <div class="slider-container">
+            <button class="slider-button left" onclick="scrollSlider(-300)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="slider">
+                <div class="slider-item bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Product 1" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/u7ktwzQWIqdMJp3VO64fsSFt1dhNldCjd970_iNidpI.jpg" width="300" />
+                    <h3 class="text-xl font-semibold mb-2">
+                        Serenity Circle Vase
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        A sculptural ceramic vase with a modern circular cut-out, perfect for adding a statement piece to your home.
+                        Ideal for dried floral arrangements or as a standalone decor element.
+                    </p>
+                    <button class="px-4 py-2 bg-black text-white rounded">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="slider-item bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Product 2" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/yEDOr4yYLhqakSzxuM5hciaVgrd8jSn-g8ss7v7WmGk.jpg" width="300" />
+                    <h3 class="text-xl font-semibold mb-2">
+                        Sculpted Harmony Vase
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Featuring a wavy, artistic silhouette, this handcrafted vase brings a sense of flow and movement to any space.
+                        Its neutral tone blends effortlessly with various interior styles.
+                    </p>
+                    <button class="px-4 py-2 bg-black text-white rounded">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="slider-item bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Product 3" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/2Me_lsbZHZpVrluno1OcHoFjtZ1JHPgI_P49ODYnoNU.jpg" width="300" />
+                    <h3 class="text-xl font-semibold mb-2">
+                        Dried Pampas Elegance
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Soft, feathery pampas grass in a warm beige hue, perfect for adding texture and a natural touch to any room.
+                        Pairs beautifully with ceramic vases.
+                    </p>
+                    <button class="px-4 py-2 bg-black text-white rounded">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="slider-item bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Product 4" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/D57ZpxOJr-6_w1F1vh-BbpOAPatbvfEZM7NP162XZiA.jpg" width="300" />
+                    <h3 class="text-xl font-semibold mb-2">
+                        Textured Palm Leaf Accent
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        A dried palm leaf arrangement that brings a touch of organic beauty to your home.
+                        A simple yet striking decorative element for vases or wall displays.
+                    </p>
+                    <button class="px-4 py-2 bg-black text-white rounded">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="slider-item bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Product 5" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/jiacu23MtF0lma27QiyCYkOiLvPvRyerSZBO9ZLSLs4.jpg" width="300" />
+                    <h3 class="text-xl font-semibold mb-2">
+                        Marble Essence Pedestal
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        A sleek, marble-inspired decorative pedestal that adds an elevated touch to your display pieces.
+                        Use it to showcase vases, candles, or small sculptures.
+                    </p>
+                    <button class="px-4 py-2 bg-black text-white rounded">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="slider-item bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Product 6" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/5qQn5m_4rUkoC7S3p7ztf9O7vL21JmXqfqFOfrIvN9k.jpg" width="300" />
+                    <h3 class="text-xl font-semibold mb-2">
+                        Minimalist Candle Duo
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        A set of hand-poured soy candles in a soft neutral palette, designed to create a calming atmosphere. Infused with subtle earthy fragrances for a warm and inviting ambiance.
+                    </p>
+                    <button class="px-4 py-2 bg-black text-white rounded">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="slider-item bg-white p-6 rounded-lg shadow-lg hover-grow">
+                    <img alt="Product 6" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/pYv4lrqB8bEycheCrHO1vhQ-pL51wEKeBHykggdOXrs.jpg" width="300" />
+                    <h3 class="text-xl font-semibold mb-2">
+                        Organic Form Mug
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        A dried palm leaf arrangement that brings a touch of organic beauty to your home.
+                        A simple yet striking decorative element for vases or wall displays.
+                    </p>
+                    <button class="px-4 py-2 bg-black text-white rounded">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <button class="slider-button right" onclick="scrollSlider(300)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="mt-6 text-center">
+            <a class="px-6 py-3 bg-black text-white rounded" href="https://www.ddecor.com/?srsltid=AfmBOooJKl2plhC4uqD58lwoqnstkGYuxvNVQMvlrEp6jOcfNV2MUD6T" style="">
+                View More
+            </a>
+        </div>
+    </section>
+    <section class="p-6 lg:p-12 bg-[#e8e5df]" style="" id="contact">
+        <h2 class="title text-4xl lg:text-5xl mb-6">
+            Contact Us
+        </h2>
+        <p class="text-gray-700 text-lg mb-6" style="">
+            We'd love to hear from you! Whether you have questions about our products, need styling advice, or just want to say hello,
+            feel free to reach out.
+        </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+                <p class="text-gray-700 mb-4">Feel free to reach out to us for any inquiries or feedback.</p>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700" style="">Name</label>
+                        <input class="w-full p-2 border border-gray-300 rounded" type="text" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700">Email</label>
+                        <input class="w-full p-2 border border-gray-300 rounded" type="email" placeholder="Your Email">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700">Message</label>
+                        <textarea class="w-full p-2 border border-gray-300 rounded" placeholder="Your Message"></textarea>
+                    </div>
+                    <button class="px-4 py-2 bg-black text-white rounded" type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Our Location</h3>
+                <iframe class="w-full h-64 rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086509486708!2d-122.419415484681!3d37.77492927975995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064f0e0b1b1%3A0x4c8b0b0b0b0b0b0b!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1511368573245" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">About Us</h3>
+                <p class="text-gray-700">
+                    At Neutral Collection, we embrace the art of minimal living.
+                    Our collection is inspired by soft, earthy tones and organic textures that create a sense of calm and sophistication in every home.
+                    We believe that great design doesn't need to be loud, it speaks in the quiet elegance of neutral palettes, natural materials, and timeless forms.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Contact Details</h3>
+                <p class="text-gray-700">Email: contact@example.com</p>
+                <p class="text-gray-700">Phone: +123 456 7890</p>
+                <p class="text-gray-700">Address: 123 Main Street, Anytown, USA</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg" style="">
+                <h3 class="text-2xl font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-4 mt-4">
+                    <a class="text-gray-700 hover:text-black" href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a class="text-gray-700 hover:text-black" href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a class="text-gray-700 hover:text-black" href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a class="text-gray-700 hover:text-black" href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a class="text-gray-700 hover:text-black" href="#"><i class="fab fa-youtube fa-2x"></i></a>
+                    <a class="text-gray-700 hover:text-black" href="#"><i class="fas fa-globe fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let autoSlideInterval;
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                changeQuote(1);
+            }, 3000);
+        }
+
+        function pauseSlider() {
+            clearInterval(autoSlideInterval);
+        }
+
+        function resumeSlider() {
+            startAutoSlide();
+        }
+
+        function scrollSlider(amount) {
+            document.querySelector('.slider').scrollBy({
+                left: amount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add event listeners to nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        let currentQuoteIndex = 0;
+        const quotes = document.querySelectorAll('.quote-slider');
+        const bullets = document.querySelectorAll('.bullet');
+
+        function changeQuote(direction) {
+            quotes[currentQuoteIndex].classList.remove('active');
+            bullets[currentQuoteIndex].classList.remove('active');
+            currentQuoteIndex = (currentQuoteIndex + direction + quotes.length) % quotes.length;
+            quotes[currentQuoteIndex].classList.add('active');
+            bullets[currentQuoteIndex].classList.add('active');
+        }
+
+        // New function to change quote based on bullet click
+        function changeQuote(index) {
+            quotes[currentQuoteIndex].classList.remove('active');
+            bullets[currentQuoteIndex].classList.remove('active');
+            currentQuoteIndex = index;
+            quotes[currentQuoteIndex].classList.add('active');
+            bullets[currentQuoteIndex].classList.add('active');
+        }
+
+        startAutoSlide(); // Start the automatic sliding when the page loads
+    </script>
+</body>
+</html>
+
